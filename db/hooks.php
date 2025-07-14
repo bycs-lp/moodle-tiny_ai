@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - https://moodle.org/
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,24 +12,22 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * Hook listener callbacks.
  *
- * @package     tiny_ai
- * @copyright   2024, ISB Bayern
- * @author      Dr. Peter Mayer
- * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tiny_ai
+ * @copyright  2025 ISB Bayern
+ * @author     Philipp Memmel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'tiny_ai';
-$plugin->release = 'v2.0';
-$plugin->version = 2025071200;
-$plugin->requires = 2024042200;
-$plugin->maturity = MATURITY_BETA;
-$plugin->dependencies = [
-        'local_ai_manager' => 2025071200,
+$callbacks = [
+        [
+                'hook' => \local_ai_manager\hook\purpose_usage::class,
+                'callback' => \tiny_ai\local\hook_callbacks::class . '::handle_purpose_usage',
+        ],
 ];
