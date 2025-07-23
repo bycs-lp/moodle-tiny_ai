@@ -34,6 +34,7 @@ export default class extends BaseHandler {
     targetLanguage = null;
     voice = null;
     gender = null;
+    instructions = null;
 
     async getTargetLanguageOptions() {
         await this.loadTtsOptions();
@@ -50,6 +51,11 @@ export default class extends BaseHandler {
         return this.ttsOptions.gender;
     }
 
+    async isInstructionsOptionAvailable() {
+        await this.loadTtsOptions();
+        return this.ttsOptions.hasOwnProperty('instructions') && this.ttsOptions.instructions !== '';
+    }
+
     setTargetLanguage(targetLanguage) {
         this.targetLanguage = targetLanguage;
     }
@@ -60,6 +66,10 @@ export default class extends BaseHandler {
 
     setGender(gender) {
         this.gender = gender;
+    }
+
+    setInstructions(instructions) {
+        this.instructions = instructions;
     }
 
     getOptions() {
@@ -75,6 +85,9 @@ export default class extends BaseHandler {
         }
         if (this.gender) {
             options.gender = [this.gender];
+        }
+        if (this.instructions) {
+            options.instructions = this.instructions;
         }
         return options;
     }
@@ -161,15 +174,6 @@ export default class extends BaseHandler {
             genderDropdownContext.dropdownOptions = genderDropdownOptions;
             modalDropdowns.push(genderDropdownContext);
         }
-        /*
-        TODO CHECK IF STILL NEEDED
-        if (tool === 'audiogen') {
-            // In the audiogen view the dropdowns are at the bottom, so we need to make the dropdowns dropup instead of dropdown.
-            modalDropdowns.forEach(dropdownContext => {
-                dropdownContext.dropup = true;
-            });
-        }
-        */
 
         Object.assign(context, {
             modalDropdowns: modalDropdowns
@@ -177,14 +181,18 @@ export default class extends BaseHandler {
 
         Object.assign(context, BasedataHandler.getShowPromptButtonContext(false));
 
-        /*
-        TODO CHECK IF STILL NEEDED
-        if (tool === 'audiogen') {
-            // Overwrite some prompt textarea specific attributes.
-            context.collapsed = false;
-            context.placeholder = BasedataHandler.getTinyAiString('audiogen_placeholder');
+        const isInstructionsOptionAvailable = await this.isInstructionsOptionAvailable();
+        if (isInstructionsOptionAvailable) {
+            context.textareas.push({
+                textareatype: 'instructions',
+                collapsed: false,
+                placeholder: BasedataHandler.getTinyAiString('ttsinstructions_example'),
+                name: 'instructions',
+                showlabel: true,
+                label: BasedataHandler.getTinyAiString('ttsinstructions')
+            });
         }
-        */
+
         Object.assign(context, BasedataHandler.getBackAndGenerateButtonContext());
         return context;
     }
