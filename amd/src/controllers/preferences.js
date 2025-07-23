@@ -94,6 +94,7 @@ export default class extends BaseController {
                 const ttsTargetLanguageElement = this.baseElement.querySelector('[data-preference="targetLanguage"]');
                 const voiceElement = this.baseElement.querySelector('[data-preference="voice"]');
                 const genderElement = this.baseElement.querySelector('[data-preference="gender"]');
+                const instructionsElement = this.baseElement.querySelector('[data-type="instructions"]');
                 if (ttsTargetLanguageElement) {
                     ttsHandler.setTargetLanguage(ttsTargetLanguageElement.querySelector('[data-dropdown="select"]').dataset.value);
                     ttsTargetLanguageElement.addEventListener('dropdownSelectionUpdated', event => {
@@ -112,6 +113,13 @@ export default class extends BaseController {
                     ttsHandler.setGender(genderElement.querySelector('[data-dropdown="select"]').dataset.value);
                     genderElement.addEventListener('dropdownSelectionUpdated', event => {
                         ttsHandler.setGender(event.detail.newValue);
+                        this.datamanager.setCurrentOptions(ttsHandler.getOptions());
+                    });
+                }
+                if (instructionsElement) {
+                    ttsHandler.setInstructions(instructionsElement.value);
+                    instructionsElement.addEventListener('input', event => {
+                        ttsHandler.setInstructions(event.target.value);
                         this.datamanager.setCurrentOptions(ttsHandler.getOptions());
                     });
                 }
