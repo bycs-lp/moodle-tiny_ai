@@ -94,6 +94,8 @@ const stringKeys = [
     'translate_baseprompt',
     'translate_headline',
     'tts_headline',
+    'ttsinstructions',
+    'ttsinstructions_example',
     'voice'
 ];
 
