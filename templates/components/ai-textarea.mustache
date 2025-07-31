@@ -31,5 +31,6 @@ Context variables required for this template:
 Example context (json):
 {}
 }}
+{{#showlabel}}<label for="{{textareatype}}">{{label}}</label>{{/showlabel}}
 <textarea {{#disabled}}disabled{{/disabled}} class="tiny_ai-textarea {{#collapsed}}d-none{{/collapsed}}"{{!
- }} placeholder="{{placeholder}}" data-type="{{textareatype}}"></textarea>
+ }} placeholder="{{placeholder}}" data-type="{{textareatype}}" name="{{textareatype}}"></textarea>

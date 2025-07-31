@@ -34,7 +34,7 @@ export default class extends BaseHandler {
 
     async getSizesOptions() {
         await this.loadImggenOptions();
-        return this.imggenOptions.sizes;
+        return this.imggenOptions.hasOwnProperty('sizes') ? this.imggenOptions.sizes : null;
     }
 
     setSize(size) {
