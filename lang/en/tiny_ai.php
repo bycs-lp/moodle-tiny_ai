@@ -114,4 +114,6 @@ $string['toolname_tts'] = 'Create audio';
 $string['translate_baseprompt'] = 'Translate the following text to the language {$a} and only return the translated text';
 $string['translate_headline'] = 'Translate text';
 $string['tts_headline'] = 'Generate audio from text';
+$string['ttsinstructions'] = 'Further instructions for audio output';
+$string['ttsinstructions_example'] = 'Use a high pitched voice';
 $string['voice'] = 'Voice';
