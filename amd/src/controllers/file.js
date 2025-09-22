@@ -79,6 +79,11 @@ export default class {
             // We have to be careful. We are registering this listener globally onto the modal dialog to catch all the
             // paste events. We have to ensure we do not interfere with pasting into text fields of other tools though.
             if (['describeimg', 'imagetotext'].includes(datamanager.getCurrentTool())) {
+                const activeElement = document.activeElement;
+                if (activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement) {
+                    // In case of an input field or textarea we do not interfere.
+                    return;
+                }
                 event.preventDefault();
                 const clipboardData = (event.clipboardData || window.clipboardData);
                 if (clipboardData.files.length === 0) {
