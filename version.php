@@ -29,6 +29,7 @@ $plugin->component = 'tiny_ai';
 $plugin->release = 'v2.1';
 $plugin->version = 2025091700;
 $plugin->requires = 2025041400;
+$plugin->supported = [500];
 $plugin->maturity = MATURITY_BETA;
 $plugin->dependencies = [
         'local_ai_manager' => 2025071200,
