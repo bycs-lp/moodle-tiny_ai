@@ -79,17 +79,7 @@ export default class extends BaseHandler {
 
     isToolHidden(tool) {
         const purposeInfo = this.getPurposeConfig(tool);
-        // If the tenant is not allowed the plugin is being disabled completely, so we do not need
-        // to check this case here.
-        if (this.aiConfig.role === 'role_basic') {
-            if (!this.aiConfig.tenantenabled) {
-                return true;
-            }
-            if (!purposeInfo.isconfigured) {
-                return true;
-            }
-        }
-        return false;
+        return this.aiConfig.availability === 'hidden' || purposeInfo.available === 'hidden';
     }
 
     async getTemplateContext(editorUtils) {
