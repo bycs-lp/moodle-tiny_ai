@@ -43,27 +43,28 @@ use local_ai_manager\local\userinfo;
  * @author      Philipp Memmel
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class plugininfo extends plugin implements plugin_with_configuration, plugin_with_buttons, plugin_with_menuitems {
-
+class plugininfo extends plugin implements plugin_with_buttons, plugin_with_configuration, plugin_with_menuitems {
     #[\Override]
     public static function is_enabled(
-            context $context,
-            array $options,
-            array $fpoptions,
-            ?\editor_tiny\editor $editor = null
+        context $context,
+        array $options,
+        array $fpoptions,
+        ?\editor_tiny\editor $editor = null
     ): bool {
         global $USER;
         if (!has_capability('tiny/ai:view', $context)) {
             return false;
         }
         $aiconfig =
-                ai_manager_utils::get_ai_config($USER, $context->id, null, ['singleprompt', 'translate', 'itt', 'imggen', 'tts']);
+            ai_manager_utils::get_ai_config($USER, $context->id, null, ['singleprompt', 'translate', 'itt', 'imggen', 'tts']);
         if ($aiconfig['availability']['available'] === ai_manager_utils::AVAILABILITY_HIDDEN) {
             return false;
         }
-        $atleastonepurposenothidden =
-                array_reduce($aiconfig['purposes'], fn($a, $b) => $a || $b['available'] !== ai_manager_utils::AVAILABILITY_HIDDEN,
-                        false);
+        $atleastonepurposenothidden = array_reduce(
+            $aiconfig['purposes'],
+            fn($a, $b) => $a || $b['available'] !== ai_manager_utils::AVAILABILITY_HIDDEN,
+            false
+        );
         if (!$atleastonepurposenothidden) {
             return false;
         }
@@ -73,27 +74,27 @@ class plugininfo extends plugin implements plugin_with_configuration, plugin_wit
     #[\Override]
     public static function get_available_buttons(): array {
         return [
-                'tiny_ai/plugin',
+            'tiny_ai/plugin',
         ];
     }
 
     #[\Override]
     public static function get_available_menuitems(): array {
         return [
-                'tiny_ai/plugin',
+            'tiny_ai/plugin',
         ];
     }
 
     #[\Override]
     public static function get_plugin_configuration_for_context(
-            context $context,
-            array $options,
-            array $fpoptions,
-            ?\editor_tiny\editor $editor = null
+        context $context,
+        array $options,
+        array $fpoptions,
+        ?\editor_tiny\editor $editor = null
     ): array {
         global $USER;
         return [
-                'userId' => intval($USER->id),
+            'userId' => intval($USER->id),
         ];
     }
 }

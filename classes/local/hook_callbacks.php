@@ -27,7 +27,6 @@ use local_ai_manager\ai_manager_utils;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class hook_callbacks {
-
     /**
      * Provide additional information about which purposes are being used by this plugin.
      *
