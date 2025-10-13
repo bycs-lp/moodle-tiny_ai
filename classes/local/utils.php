@@ -25,7 +25,6 @@ namespace tiny_ai\local;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class utils {
-
     /**
      * Returns the places used for the different purposes.
      *
@@ -34,43 +33,64 @@ class utils {
     public static function get_purpose_placedescriptions(): array {
         $returnarray = [];
         $returnarray[] = [
-                'purpose' => 'singleprompt',
-                'placedescription' => get_string('purposeplacedescription_freeinputtextarea', 'tiny_ai'),
+            'purpose' => 'singleprompt',
+            'placedescription' => get_string('purposeplacedescription_freeinputtextarea', 'tiny_ai'),
         ];
         $returnarray[] = [
-                'purpose' => 'singleprompt',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_describe', 'tiny_ai')),
+            'purpose' => 'singleprompt',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_describe', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'singleprompt',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_summarize', 'tiny_ai')),
+            'purpose' => 'singleprompt',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_summarize', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'translate',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_translate', 'tiny_ai')),
+            'purpose' => 'translate',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_translate', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'imggen',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_imggen', 'tiny_ai')),
+            'purpose' => 'imggen',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_imggen', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'tts',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_tts', 'tiny_ai')),
+            'purpose' => 'tts',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_tts', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'itt',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_imagetotext', 'tiny_ai')),
+            'purpose' => 'itt',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_imagetotext', 'tiny_ai')
+            ),
         ];
         $returnarray[] = [
-                'purpose' => 'itt',
-                'placedescription' => get_string('purposeplacedescription_toolprefix', 'tiny_ai',
-                        get_string('toolname_describeimg', 'tiny_ai')),
+            'purpose' => 'itt',
+            'placedescription' => get_string(
+                'purposeplacedescription_toolprefix',
+                'tiny_ai',
+                get_string('toolname_describeimg', 'tiny_ai')
+            ),
         ];
         return $returnarray;
     }
