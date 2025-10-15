@@ -4,11 +4,7 @@
 }
 
 .tiny_ai-modal--dialog {
-    background: $neutral-white;
-    border-radius: 8px;
     padding: 0px;
-    position: relative;
-    border: 1px solid $neutral-grey-100;
 
     .modal-content {
         border: none;
@@ -91,8 +87,7 @@
         .tiny_ai-usage-info {
             margin: 0;
             text-align: right;
-            color: $neutral-grey-300;
-            font-family: "Atkinson Hyperlegible";
+            color: var(--bs-gray-700);
             font-size: 12px;
             font-style: normal;
             font-weight: 400;
@@ -101,21 +96,3 @@
     }
 }
 
-.dark {
-    .tiny_ai--dialog {
-        background: $neutral-grey-500;
-
-        .tiny_ai-modal--header {
-            .close {
-                color: $neutral-white;
-            }
-        }
-
-        [data-region="footer"] {
-
-            .tiny_ai-usage-info {
-                color: $neutral-grey-200;
-            }
-        }
-    }
-}

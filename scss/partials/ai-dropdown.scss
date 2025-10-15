@@ -1,5 +1,4 @@
 .tiny_ai-dropdown-label {
-    font-family: "Atkinson Hyperlegible";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -14,16 +13,14 @@
     .tiny_ai-btn {
         width: 100%;
         padding: 10px 15px;
-        background-color: $neutral-white;
-        border: 1px solid $neutral-grey-100;
+        background-color: var(--bs-modal-bg);
+        border: 1px solid var(--bs-border-color);
         border-radius: 4px;
         text-align: left;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
-        color: $neutral-grey-500;
-        font-family: "Atkinson Hyperlegible";
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -40,7 +37,7 @@
 
     .tiny_ai-icon {
         font-size: 16px;
-        color: $neutral-grey-500;
+        color: var(--grey-500);
         transition: transform ease-in-out 0.2s;
     }
 
@@ -50,14 +47,14 @@
         width: 100%;
         top: 100%;
         left: 0;
-        background-color: $neutral-white;
+        background-color: var(--bs-modal-bg);
         border-radius: 4px;
         z-index: 1000;
         padding: 5px 0;
         margin-top: 4px;
         max-height: 200px;
         overflow-y: auto;
-        
+
         @include custom-scrollbar;
 
         &.show {
@@ -69,16 +66,11 @@
         cursor: pointer;
         text-align: left;
         white-space: nowrap;
-        color: $neutral-grey-500;
-        font-family: "Atkinson Hyperlegible";
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
-        line-height: 26px; 
+        line-height: 26px;
 
-        &:hover {
-            background-color: #f5f5f5;
-        }
         }
     }
 
@@ -99,47 +91,6 @@
             .tiny_ai-icon {
                 transform: rotate(180deg);
                 transition: transform ease-in-out 0.2s;
-            }
-        }
-    }
-}
-
-.dark {
-    .tiny_ai-dropdown-label {
-        font-family: "Atkinson Hyperlegible";
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-    }
-
-    .tiny_ai-dropdown {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-
-        .tiny_ai-btn {
-            background-color: $neutral-grey-500;
-            border: 1px solid $neutral-white;
-            color: $neutral-white;
-        }
-
-        .tiny_ai-icon {
-            font-size: 16px;
-            color: $neutral-white;
-        }
-
-        .tiny_ai-dropdown-menu {
-            background-color: $neutral-grey-500;
-            border-color: $neutral-white;
-
-            .tiny_ai-dropdown-item {
-            color: $neutral-white;
-
-            &:hover {
-                background-color: #f5f5f5;
-                color: $neutral-grey-500;
-            }
             }
         }
     }

@@ -1,10 +1,10 @@
 .tiny_ai-input-container {
     display: flex;
     align-items: flex-end;
-    border: 1px solid $neutral-grey-100;
+    border: 1px solid var(--bs-border-color);
     border-radius: 8px;
     padding: 10px;
-    background-color: $neutral-white;
+    background-color: var(--bs-modal-bg);
     position: relative;
 
     &.has-error {
@@ -12,7 +12,6 @@
 
         ~ .tiny_ai-input-error {
             color: $feedback-error-200;
-            font-family: "Atkinson Hyperlegible";
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
@@ -21,29 +20,29 @@
     }
 
     &.disabled {
-        border-color: $neutral-grey-200;
+        border-color: var(--bs-border-color);
 
         .tiny_ai-input-icon {
-            color: $neutral-grey-200;
+            color: var(--bs-gray-500);
         }
 
         .tiny_ai-input-field {
             background: none;
 
             &::placeholder {
-                color: $neutral-grey-200;
+                color: var(--bs-border-color);
             }
         }
     }
 
     &:focus-within {
-        border-color: $neutral-grey-300;
+        border-color: var(--bs-border-color);
     }
 
     .tiny_ai-input-icon {
         margin-right: 10px;
         font-size: 18px;
-        color: $neutral-grey-500;
+        color: var(--bs-grey-500);
     }
 
     .tiny_ai-input-field {
@@ -51,7 +50,6 @@
         border: none;
         outline: none;
         font-size: 16px;
-        color: $neutral-grey-500;
         resize: none; /* Prevent manual resizing */
         overflow-y: auto; /* Enable vertical scroll */
         height: 40px;
@@ -64,47 +62,7 @@
         @include custom-scrollbar;
 
         &::placeholder {
-            color: $neutral-grey-300;
-        }
-    }
-}
-
-.dark {
-    .tiny_ai-input-container {
-        border: 1px solid $neutral-grey-200;
-        background: $neutral-grey-500;
-
-        &.has-error {
-            border-color: $feedback-error-200;
-        }
-
-        .tiny_ai-input-field {
-            background: $neutral-grey-500;
-            color: $neutral-white;
-
-            &::placeholder {
-                color: $neutral-grey-200;
-            }
-        }
-
-        .tiny_ai-input-icon {
-            color: $neutral-white;
-        }
-
-        &.disabled {
-            border-color: $neutral-grey-300;
-
-            .tiny_ai-input-icon {
-                color: $neutral-grey-300;
-            }
-
-            .tiny_ai-input-field {
-                background: none;
-
-                &::placeholder {
-                    color: $neutral-grey-300;
-                }
-            }
+            //color: $neutral-grey-300; // CHECK: Wird das nicht automatisch gesetzt=
         }
     }
 }

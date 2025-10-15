@@ -14,16 +14,8 @@
     overflow-y: auto; /* Enable vertical scroll */
 
     border-radius: 4px;
-    border: 1px solid $neutral-grey-100;
-    background: $neutral-white;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-modal-bg);
 
     @include custom-scrollbar;
-}
-
-.dark {
-    .tiny_ai-textarea {
-        border-color: $lernplattform-400;
-        background: $neutral-grey-500;
-        color: $neutral-white;
-    }
 }
