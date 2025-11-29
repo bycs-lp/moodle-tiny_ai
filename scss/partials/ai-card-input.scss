@@ -28,10 +28,6 @@
 
         .tiny_ai-input-field {
             background: none;
-
-            &::placeholder {
-                color: var(--bs-border-color);
-            }
         }
     }
 
@@ -49,7 +45,6 @@
         flex-grow: 1;
         border: none;
         outline: none;
-        font-size: 16px;
         resize: none; /* Prevent manual resizing */
         overflow-y: auto; /* Enable vertical scroll */
         height: 40px;
@@ -60,9 +55,5 @@
         box-sizing: border-box;
 
         @include custom-scrollbar;
-
-        &::placeholder {
-            //color: $neutral-grey-300; // CHECK: Wird das nicht automatisch gesetzt=
-        }
     }
 }
