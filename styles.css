@@ -92,7 +92,7 @@
 }
 .tiny_ai-card-button .tiny_ai-card-button--tool,
 .tiny_ai-card-button .tiny_ai-card-button--description {
-  color: var(--color-font, var(--bs-heading-color));
+  color: var(--color-font, var(--bs-emphasis-color));
   text-align: center;
   line-height: 26px; /* 144.444% */
   text-decoration: none;
@@ -106,7 +106,7 @@
 .tiny_ai-card-button [class^=icon-tiny_ai_],
 .tiny_ai-card-button [class^=fa-] {
   font-size: 24px;
-  color: var(--color-font);
+  color: var(--color-font, var(--bs-emphasis-color));
 }
 @media (max-width: 480px) {
   .tiny_ai-card-button {
