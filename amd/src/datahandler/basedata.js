@@ -245,6 +245,7 @@ export const getInputContext = () => {
                 button: [
                     {
                         customicon: false,
+                        primary: true,
                         iconname: 'arrow-right',
                         iconstyle: 'solid',
                         iconLeft: false,

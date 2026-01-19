@@ -53,6 +53,8 @@
         line-height: 1.5;
         padding: 8px;
         box-sizing: border-box;
+        background: transparent;
+        color: var(--color-font);
 
         @include custom-scrollbar;
     }
