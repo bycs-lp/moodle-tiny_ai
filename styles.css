@@ -165,6 +165,8 @@
   line-height: 1.5;
   padding: 8px;
   box-sizing: border-box;
+  background: transparent;
+  color: var(--color-font);
 }
 .tiny_ai-input-container .tiny_ai-input-field::-webkit-scrollbar {
   width: 12px;
@@ -426,9 +428,10 @@
   width: 100%;
   resize: none; /* Prevent manual resizing */
   overflow-y: auto; /* Enable vertical scroll */
-  border-radius: 4px;
-  border: 1px solid var(--bs-border-color);
-  background: var(--bs-modal-bg);
+  border: var(--bs-border-width) solid var(--color-input-border, #6a737b);
+  border-radius: var(--bs-border-radius);
+  background-color: var(--color-input-bg);
+  color: var(--color-input);
 }
 .tiny_ai-textarea::-webkit-scrollbar {
   width: 12px;
