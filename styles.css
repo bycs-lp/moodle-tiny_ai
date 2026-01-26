@@ -308,17 +308,14 @@
 .tiny_ai-button.has-icon .tiny_ai-button-text {
   flex-grow: 0;
 }
-.tiny_ai-button.disabled {
-  background: var(--bs-gray-500);
-  cursor: no-drop;
-}
-.tiny_ai-button.disabled .tiny_ai-button-text {
-  color: var(--bs-white);
-}
 
 .tiny_ai-dropdown-label {
   font-size: 14px;
   line-height: 20px;
+}
+
+.tiny_ai-dropdown.dropup .dropdown-toggle::after {
+  font-size: 9px;
 }
 
 .tiny_ai_dropzone {
