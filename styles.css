@@ -192,6 +192,9 @@
   overflow: visible !important;
   min-height: 640px;
 }
+.tiny_ai-modal--dialog .modal-body {
+  display: flex;
+}
 .tiny_ai-modal--dialog .tiny_ai-modal--header {
   padding: 24px 24px 16px 24px;
   border: 0;
@@ -314,8 +317,22 @@
   line-height: 20px;
 }
 
+.tiny_ai-dropdown .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tiny_ai-dropdown .dropdown-menu {
+  width: 100%;
+}
+
 .tiny_ai-dropdown.dropup .dropdown-toggle::after {
   font-size: 9px;
+}
+
+.tiny_ai-dropdown .dropdown-toggle::after {
+  margin-left: auto;
 }
 
 .tiny_ai_dropzone {
@@ -435,5 +452,3 @@
   font-weight: 500;
   line-height: 30px; /* 150% */
 }
-
-/*# sourceMappingURL=styles.css.map */
