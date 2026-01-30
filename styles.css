@@ -290,8 +290,8 @@
   color: var(--color-font);
 }
 .tiny_ai-button.tertiary:hover {
+  --color-font: --bs-primary;
   background-color: unset;
-  color: var(--bs-primary);
 }
 .tiny_ai-button [class^=fa-] {
   font-size: 20px;
@@ -329,6 +329,7 @@
 
 .tiny_ai-dropdown.dropup .dropdown-toggle::after {
   font-size: 9px;
+  margin-left: auto;
 }
 
 .tiny_ai-dropdown .dropdown-toggle::after {
@@ -452,3 +453,5 @@
   font-weight: 500;
   line-height: 30px; /* 150% */
 }
+
+/*# sourceMappingURL=styles.css.map */
