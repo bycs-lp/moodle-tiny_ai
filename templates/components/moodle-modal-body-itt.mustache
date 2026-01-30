@@ -31,9 +31,9 @@ Context variables required for this template:
 Example context (json):
 {}
 }}
-<div id="tiny_ai_{{tool}}_{{uniqid}}" data-tiny_instance_uniqid={{tinyinstanceuniqid}} class="h-100">
+<div id="tiny_ai_{{tool}}_{{uniqid}}" data-tiny_instance_uniqid={{tinyinstanceuniqid}} class="flex-grow-1">
     <div class="row">
-        <div class="tiny_ai_dropzone justify-content-center w-100" data-type="dropzone" disabled>
+        <div class="tiny_ai_dropzone justify-content-center w-100 mb-3" data-type="dropzone" disabled>
             {{insertimagedescription}}
         </div>
         <input type="hidden" data-preference="fileupload" />

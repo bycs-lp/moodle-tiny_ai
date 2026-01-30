@@ -7,8 +7,8 @@
     align-self: stretch;
 
     border-radius: 4px;
-    border: 1px solid $neutral-grey-100;
-    background: $neutral-white;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-modal-bg);
 
     p {
         margin: 0;
@@ -16,13 +16,5 @@
 
     img {
         max-height: 50vh;
-    }
-}
-
-.dark {
-    .tiny_ai-result-text {
-
-        border: 1px solid $lernplattform-400;
-        background: $neutral-grey-500;
     }
 }

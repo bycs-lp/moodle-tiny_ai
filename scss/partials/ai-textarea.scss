@@ -1,5 +1,4 @@
 .tiny_ai-textarea {
-
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -13,17 +12,10 @@
     resize: none; /* Prevent manual resizing */
     overflow-y: auto; /* Enable vertical scroll */
 
-    border-radius: 4px;
-    border: 1px solid $neutral-grey-100;
-    background: $neutral-white;
+    border: var(--bs-border-width) solid var(--color-input-border, #6a737b);
+    border-radius: var(--bs-border-radius);
+    background-color: var(--color-input-bg);
+    color: var(--color-input);
 
     @include custom-scrollbar;
-}
-
-.dark {
-    .tiny_ai-textarea {
-        border-color: $lernplattform-400;
-        background: $neutral-grey-500;
-        color: $neutral-white;
-    }
 }
