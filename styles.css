@@ -290,8 +290,8 @@
   color: var(--color-font);
 }
 .tiny_ai-button.tertiary:hover {
-  --color-font: --bs-primary;
   background-color: unset;
+  color: var(--bs-primary) !important;
 }
 .tiny_ai-button [class^=fa-] {
   font-size: 20px;
@@ -361,7 +361,7 @@
 
 .tiny_ai_dropzone_filled {
   background-color: #ffffff;
-  color: #000000;
+  color: var(--color-font);
 }
 
 .tiny_ai_dropzone_preview_container {
@@ -453,5 +453,3 @@
   font-weight: 500;
   line-height: 30px; /* 150% */
 }
-
-/*# sourceMappingURL=styles.css.map */
