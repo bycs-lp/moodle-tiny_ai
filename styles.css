@@ -231,6 +231,7 @@
 }
 .tiny_ai-modal--dialog [data-region=body] :first-child[id^=tiny_ai_] {
   display: flex;
+  flex-grow: 1;
   padding: 8px 24px 0px 24px;
   flex-direction: column;
 }
