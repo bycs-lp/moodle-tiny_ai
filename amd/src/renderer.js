@@ -174,6 +174,16 @@ export default class {
                 html = img.outerHTML;
                 break;
             }
+            case 'describeimg':
+            case 'imagetotext': {
+                // The ITT output is raw text from the LLM. It must be escaped before being inserted
+                // into the editor so that any HTML code extracted from a document is displayed as
+                // visible code rather than being interpreted as HTML.
+                const container = document.createElement('div');
+                container.textContent = this.datamanager.getCurrentAiResult();
+                html = container.innerHTML;
+                break;
+            }
             default: {
                 html = this.datamanager.getCurrentAiResult();
             }
