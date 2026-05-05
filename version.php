@@ -26,11 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tiny_ai';
-$plugin->release = 'v2.2';
-$plugin->version = 2025101300;
+$plugin->release = 'v3.0';
+$plugin->version = 2026050500;
 $plugin->requires = 2025041400;
-$plugin->supported = [500, 501];
+$plugin->supported = [500, 502];
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = [
-        'local_ai_manager' => 2025071200,
+        'local_ai_manager' => 2026050500,
 ];
