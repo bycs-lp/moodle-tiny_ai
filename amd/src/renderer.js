@@ -185,7 +185,12 @@ export default class {
                 break;
             }
             default: {
-                html = this.datamanager.getCurrentAiResult();
+                // The model output is untrusted text and may contain HTML (for example reproduced from the
+                // selected content). It must be escaped so that it is displayed as visible text and never
+                // interpreted as markup, neither in the suggestion modal nor after inserting it into the editor.
+                const container = document.createElement('div');
+                container.textContent = this.datamanager.getCurrentAiResult();
+                html = container.innerHTML;
             }
         }
         return html;
