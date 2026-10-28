@@ -29,6 +29,7 @@ import {
     selectionbarButtonName,
     icon
 } from 'tiny_ai/common';
+import Config from 'core/config';
 import {prefetchStrings} from 'core/prefetch';
 import {getString} from 'core/str';
 import {getContextId as getContextItemIdTinyCore} from 'editor_tiny/options';
@@ -100,16 +101,48 @@ export const getSetup = async() => {
     };
 };
 
+/**
+ * Checks whether the source of an image from the editor selection may be fetched by this plugin.
+ *
+ * The selection can contain content written by somebody else, so the source must not be an arbitrary URL.
+ * Only data and blob URLs and files served by Moodle itself (pluginfile.php and draftfile.php of this site) are allowed.
+ *
+ * @param {string} src the source of the image
+ * @returns {boolean} true if the image may be fetched
+ */
+const isFetchableImageSource = (src) => {
+    let url;
+    let wwwroot;
+    try {
+        url = new URL(src, window.location.href);
+        wwwroot = new URL(Config.wwwroot);
+    } catch (exception) {
+        return false;
+    }
+    if (url.protocol === 'data:' || url.protocol === 'blob:') {
+        return true;
+    }
+    if (url.origin !== wwwroot.origin) {
+        return false;
+    }
+    let basePath = wwwroot.pathname;
+    if (basePath.endsWith('/')) {
+        basePath = basePath.slice(0, -1);
+    }
+    return url.pathname.startsWith(basePath + '/pluginfile.php/') || url.pathname.startsWith(basePath + '/draftfile.php/');
+};
+
 export const injectSelectedElements = async(editor, datamanager) => {
     const selectedEditorContentHtml = editor.selection.getContent({format: 'html'});
     const parser = new DOMParser();
     const editorDom = parser.parseFromString(selectedEditorContentHtml, 'text/html');
     const images = editorDom.querySelectorAll('img');
 
-    if (images.length > 0 && images[0].src) {
+    if (images.length > 0 && images[0].src && isFetchableImageSource(images[0].src)) {
         // If there are more than one we just use the first one.
         const image = images[0];
-        // This should work for both external and data urls.
+        // The check above ensures that only data urls and Moodle files are fetched. Moodle files need the session
+        // of the user (draft files), so the credentials must not be omitted.
         const fetchResult = await fetch(image.src);
         const data = await fetchResult.blob();
         datamanager.setSelectionImg(data);

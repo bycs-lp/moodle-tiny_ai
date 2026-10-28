@@ -121,12 +121,6 @@ export default class {
             async() => {
                 const currentModalUniqid = getCurrentModalUniqId(this.baseElement);
                 const datamanager = getDatamanager(currentModalUniqid);
-                const fileUploadedEvent = new CustomEvent('fileUploaded', {
-                    detail: {
-                        newFile: reader.result,
-                    }
-                });
-                datamanager.getEventEmitterElement().dispatchEvent(fileUploadedEvent);
                 const ittHandler = getIttHandler(currentModalUniqid);
                 const allowedMimetypes = await ittHandler.getAllowedMimetypes();
 
@@ -136,6 +130,14 @@ export default class {
                     await errorAlert(errorText, errorTitle);
                     return;
                 }
+
+                // Only publish the file as request payload after the mimetype has been checked.
+                const fileUploadedEvent = new CustomEvent('fileUploaded', {
+                    detail: {
+                        newFile: reader.result,
+                    }
+                });
+                datamanager.getEventEmitterElement().dispatchEvent(fileUploadedEvent);
 
                 const fileEntryTemplateContext = {
                     icon: file.type === 'application/pdf' ? 'fa-file-pdf' : 'fa-image',
