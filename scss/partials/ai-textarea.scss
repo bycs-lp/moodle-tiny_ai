@@ -12,10 +12,10 @@
     resize: none; /* Prevent manual resizing */
     overflow-y: auto; /* Enable vertical scroll */
 
-    border: var(--bs-border-width) solid var(--color-input-border, #6a737b);
+    border: var(--bs-border-width) solid var(--mds-border-default, #6a737b);
     border-radius: var(--bs-border-radius);
-    background-color: var(--color-input-bg);
-    color: var(--color-input);
+    background-color: var(--mds-bg-interactive-secondary-default, var(--bs-body-bg));
+    color: var(--mds-text-default, var(--bs-body-color));
 
     @include custom-scrollbar;
 }

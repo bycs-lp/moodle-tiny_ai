@@ -92,7 +92,7 @@
 }
 .tiny_ai-card-button .tiny_ai-card-button--tool,
 .tiny_ai-card-button .tiny_ai-card-button--description {
-  color: var(--color-font, var(--bs-emphasis-color));
+  color: var(--bs-body-color);
   text-align: center;
   line-height: 26px; /* 144.444% */
   text-decoration: none;
@@ -106,7 +106,7 @@
 .tiny_ai-card-button [class^=icon-tiny_ai_],
 .tiny_ai-card-button [class^=fa-] {
   font-size: 24px;
-  color: var(--color-font, var(--bs-emphasis-color));
+  color: var(--bs-body-color);
 }
 @media (max-width: 480px) {
   .tiny_ai-card-button {
@@ -166,7 +166,7 @@
   padding: 8px;
   box-sizing: border-box;
   background: transparent;
-  color: var(--color-font);
+  color: var(--bs-body-color);
 }
 .tiny_ai-input-container .tiny_ai-input-field::-webkit-scrollbar {
   width: 12px;
@@ -288,7 +288,7 @@
   background-color: unset;
   border: none;
   padding: 0;
-  color: var(--color-font);
+  color: var(--bs-body-color);
 }
 .tiny_ai-button.tertiary:hover {
   background-color: unset;
@@ -362,7 +362,7 @@
 
 .tiny_ai_dropzone_filled {
   background-color: #ffffff;
-  color: var(--color-font);
+  color: var(--bs-body-color);
 }
 
 .tiny_ai_dropzone_preview_container {
@@ -428,10 +428,10 @@
   width: 100%;
   resize: none; /* Prevent manual resizing */
   overflow-y: auto; /* Enable vertical scroll */
-  border: var(--bs-border-width) solid var(--color-input-border, #6a737b);
+  border: var(--bs-border-width) solid var(--mds-border-default, #6a737b);
   border-radius: var(--bs-border-radius);
-  background-color: var(--color-input-bg);
-  color: var(--color-input);
+  background-color: var(--mds-bg-interactive-secondary-default, var(--bs-body-bg));
+  color: var(--mds-text-default, var(--bs-body-color));
 }
 .tiny_ai-textarea::-webkit-scrollbar {
   width: 12px;
